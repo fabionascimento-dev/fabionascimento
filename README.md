@@ -48,4 +48,4 @@ Unir criatividade e tecnologia para criar soluções úteis
 
 GitHub: https://github.com/fmellog
 
- LinkedIn:www.linkedin.com/in/fabio-nascimento-06315a215
+ LinkedIn:https://www.linkedin.com/in/fabio-nascimento-06315a215
