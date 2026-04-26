@@ -1,4 +1,14 @@
 # Simple workflow for deploying static content to GitHub Pages
+#
+# Required repository settings (one-time setup):
+#   1. Go to Settings → Pages
+#   2. Under "Build and deployment", set Source to "GitHub Actions"
+#   3. Go to Settings → Actions → General → Workflow permissions
+#      and make sure "Read and write permissions" is selected
+#      (or at minimum that the GITHUB_TOKEN has pages:write and id-token:write)
+#
+# The `enablement: true` parameter on the configure-pages step will attempt to
+# automatically enable Pages via the API if it is not already enabled.
 name: Deploy static content to Pages
 
 on:
@@ -33,11 +43,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Automatically enable Pages if it is not already enabled for this repository
+          enablement: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Upload only the web/ directory containing the static site content
+          path: './web'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
